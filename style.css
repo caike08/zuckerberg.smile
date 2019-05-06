@@ -42,28 +42,19 @@ h1 {
   text-align: center;
 }
 
-.mood {
-  font-size: 16px;
-  display: inline-block;
-}
-
-.mood__number {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.mood__slider {
-  display: inline-block;
-  width: 240px;
-  margin-top: 20px;
-}
-
 footer {
-  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  flex-direction: column;
   width: 100%;
-  bottom: 10px;
   font-size: 10px;
+  margin-top: 5%;
+}
+
+footer > p {
+  align-self: flex-end;
 }
 
 @media only screen and (max-width : 450px) {

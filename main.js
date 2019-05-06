@@ -1,11 +1,17 @@
 const centerEl = document.querySelector('.center');
 const spriteEl = document.querySelector('.sprite');
 const valueEl = document.querySelector('.value');
-const sliderEl = document.querySelector('.mood__slider');
 let width, height, frame = 0;
 
 resize();
 window.addEventListener('resize', resize);
+
+setInterval(() => {
+  frame = Math.floor((Math.random()*19)+1);
+  spriteEl.style.backgroundPositionY = `-${height*frame}px`;
+  valueEl.textContent = (Math.round(map(frame, 0, 19, 0, 1) * 10) / 10).toFixed(1);
+  playSound();
+}, 300);
 
 function resize(){
   width = centerEl.clientWidth;
@@ -16,19 +22,9 @@ function resize(){
 }
 
 const playSound = throttle(() => {
-  const sound = new Audio('assets/click.mp3');
+  const sound = new Audio('assets/stomp.mp3');
   sound.play();
 }, 20, true);
-
-const onSliderInput = e => {
-  frame = sliderEl.value;
-  spriteEl.style.backgroundPositionY = `-${height*frame}px`;
-  valueEl.textContent = (Math.round(map(frame, 0, 19, 0, 1) * 10) / 10).toFixed(1);
-  playSound();
-}
-
-sliderEl.addEventListener('input', onSliderInput);
-
 
 // ===== Helpers
 
