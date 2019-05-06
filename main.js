@@ -1,6 +1,5 @@
 const centerEl = document.querySelector('.center');
 const spriteEl = document.querySelector('.sprite');
-const valueEl = document.querySelector('.value');
 let width, height, frame = 0;
 
 resize();
@@ -9,9 +8,8 @@ window.addEventListener('resize', resize);
 setInterval(() => {
   frame = Math.floor((Math.random()*19)+1);
   spriteEl.style.backgroundPositionY = `-${height*frame}px`;
-  valueEl.textContent = (Math.round(map(frame, 0, 19, 0, 1) * 10) / 10).toFixed(1);
   playSound();
-}, 300);
+}, 1000);
 
 function resize(){
   width = centerEl.clientWidth;
